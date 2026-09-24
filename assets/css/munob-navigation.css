@@ -1,0 +1,418 @@
+/* Loaded last: protects the rebuilt navigation from legacy theme CSS. */
+.scrolling-navbar {
+  z-index: 1300;
+}
+
+/* The drawer is created by JavaScript and is never part of the desktop layout. */
+#munob-mobile-menu {
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  .scrolling-navbar,
+  .scrolling-navbar.munob-nav-scrolled,
+  .scrolling-navbar.munob-page-nav {
+    min-height: 88px;
+    padding: 0.7rem 0 !important;
+  }
+
+  .scrolling-navbar .container {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 1320px;
+  }
+
+  .scrolling-navbar .navbar-header {
+    display: flex !important;
+    align-items: center;
+    flex: 0 0 auto;
+    min-width: 0;
+  }
+
+  .scrolling-navbar .navbar-brand,
+  .scrolling-navbar.munob-on-hero.munob-nav-scrolled .navbar-brand,
+  .scrolling-navbar.munob-page-nav .navbar-brand {
+    display: inline-flex !important;
+    min-width: 116px;
+    height: 64px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: none !important;
+  }
+
+  .scrolling-navbar.munob-on-hero:not(.munob-nav-scrolled) .navbar-brand {
+    display: none !important;
+  }
+
+  .scrolling-navbar .navbar-brand img {
+    display: block;
+    width: auto;
+    height: 48px;
+    max-height: 48px;
+    object-fit: contain;
+  }
+
+  .scrolling-navbar #main-navbar {
+    position: absolute;
+    left: 50%;
+    display: block !important;
+    flex: none;
+    width: auto;
+    margin: 0;
+    transform: translateX(-50%);
+  }
+
+  .scrolling-navbar #main-navbar .navbar-nav {
+    display: flex !important;
+    flex-flow: row nowrap !important;
+    align-items: center;
+    justify-content: flex-end;
+    width: auto !important;
+    margin: 0;
+  }
+
+  .scrolling-navbar.munob-nav-scrolled .navbar-brand,
+  .scrolling-navbar.munob-page-nav .navbar-brand {
+    position: fixed !important;
+    top: 16px;
+    right: 28px;
+    left: auto;
+    transform: none !important;
+  }
+
+  .scrolling-navbar .navbar-nav .nav-link {
+    padding: 0.82rem 0.72rem;
+    color: #fff !important;
+    font-size: 0.9rem;
+    font-weight: 700;
+    opacity: 1 !important;
+  }
+
+  .scrolling-navbar.munob-nav-scrolled .navbar-nav .nav-link,
+  .scrolling-navbar.munob-page-nav .navbar-nav .nav-link {
+    color: #111c61 !important;
+  }
+
+  .scrolling-navbar.munob-nav-scrolled .navbar-nav .nav-item.active > .nav-link {
+    color: #0f00b8 !important;
+  }
+
+  .scrolling-navbar.munob-nav-scrolled .navbar-nav .nav-item.active > .nav-link::before {
+    height: 3px;
+    background: #f7be45 !important;
+    box-shadow: 0 0 8px rgba(247, 190, 69, 0.5);
+    transform: scale3d(1, 1, 1) !important;
+  }
+
+  .scrolling-navbar .navbar-nav .nav-link:hover,
+  .scrolling-navbar .navbar-nav .nav-link:focus {
+    color: #f7be45 !important;
+  }
+
+  /* Hero state: every label remains readable and the active section is gold. */
+  .scrolling-navbar.munob-on-hero:not(.munob-nav-scrolled) .navbar-nav .nav-item.active > .nav-link {
+    color: #fff !important;
+  }
+
+  .scrolling-navbar.munob-on-hero:not(.munob-nav-scrolled) .navbar-nav .nav-item.active > .nav-link::before {
+    height: 3px;
+    background: #f7be45 !important;
+    box-shadow: 0 0 10px rgba(247, 190, 69, 0.65);
+    transform: scale3d(1, 1, 1) !important;
+  }
+}
+
+@media (max-width: 1199px) {
+  .scrolling-navbar .container,
+  .scrolling-navbar .navbar-header {
+    position: static !important;
+  }
+
+  .scrolling-navbar .navbar-header {
+    display: flex !important;
+    width: 100%;
+  }
+
+  /* The menu control stays on the left at every scroll position. */
+  .scrolling-navbar .navbar-toggler {
+    position: fixed !important;
+    z-index: 1402;
+    top: 10px;
+    left: 18px;
+    display: inline-flex !important;
+    width: 46px;
+    height: 42px;
+    margin: 0 !important;
+  }
+
+  /* On scroll, the small MUNOB mark appears independently on the right. */
+  .scrolling-navbar .navbar-brand {
+    position: fixed !important;
+    z-index: 1401;
+    top: 12px;
+    right: 18px;
+    left: auto !important;
+    display: inline-flex !important;
+    margin: 0 !important;
+  }
+
+  .scrolling-navbar .navbar-brand img {
+    display: block;
+    width: auto;
+    max-height: 34px;
+  }
+
+  .scrolling-navbar.munob-on-hero:not(.munob-nav-scrolled) .navbar-brand {
+    visibility: hidden;
+  }
+
+  .scrolling-navbar.munob-on-hero.munob-nav-scrolled .navbar-brand {
+    visibility: visible;
+  }
+
+  .scrolling-navbar .navbar-toggler[aria-expanded="true"] {
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff !important;
+  }
+
+  /* Bootstrap's old collapse is desktop-only; the mobile drawer lives at body level. */
+  .scrolling-navbar #main-navbar {
+    display: none !important;
+  }
+
+  /* A readable, Neurobotix-style left drawer. */
+  #munob-mobile-menu {
+    position: fixed !important;
+    z-index: 1400;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    display: block !important;
+    width: min(48vw, 210px) !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 76px 0 24px !important;
+    overflow-y: auto !important;
+    border: 0 !important;
+    border-radius: 0 16px 16px 0 !important;
+    background: linear-gradient(180deg, #111c61 0%, #0a0076 58%, #050033 100%) !important;
+    box-shadow: 18px 0 42px rgba(3, 5, 40, 0.28), 0 0 0 100vmax rgba(3, 5, 40, 0.38) !important;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-110%) !important;
+    transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1), opacity 180ms ease !important;
+    scrollbar-color: #f7be45 #0a0076;
+  }
+
+  #munob-mobile-menu.is-open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0) !important;
+  }
+
+  #munob-mobile-menu .munob-drawer-close {
+    position: absolute;
+    top: 15px;
+    right: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 9px;
+    background: transparent;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 1;
+  }
+
+  #munob-mobile-menu .munob-drawer-close:hover,
+  #munob-mobile-menu .munob-drawer-close:focus {
+    border-color: #f7be45;
+    color: #f7be45;
+  }
+
+  #munob-mobile-menu::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  #munob-mobile-menu::-webkit-scrollbar-track {
+    background: #0a0076;
+  }
+
+  #munob-mobile-menu::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #f7be45;
+  }
+
+  #munob-mobile-menu ul {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 0.8rem !important;
+  }
+
+  #munob-mobile-menu li {
+    display: block;
+    width: 100%;
+  }
+
+  #munob-mobile-menu a {
+    display: block !important;
+    padding: 0.86rem 1rem !important;
+    border-radius: 8px;
+    color: #fff !important;
+    font-size: 0.84rem !important;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    line-height: 1.2;
+    opacity: 1 !important;
+    text-align: left;
+  }
+
+  #munob-mobile-menu a:hover,
+  #munob-mobile-menu a:focus {
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: #f7be45 !important;
+  }
+}
+
+/* Registration and Sponsors share one fixed artwork, so the background is seamless between them. */
+#pricing,
+#sponsors {
+  background-image: url(../img/background/final.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  border: 0 !important;
+}
+
+/* Paint Sponsors one pixel over Registration to eliminate the browser's section seam. */
+#sponsors {
+  position: relative;
+  z-index: 1;
+  margin-top: -1px;
+  padding-top: 61px;
+}
+
+#sponsors .section-title {
+  color: #ffffff;
+}
+
+#sponsors .section-title::before,
+#sponsors .section-title::after {
+  background-color: #f7be45;
+}
+
+#sponsors .spnsors-logo {
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 14px 28px rgba(2, 0, 43, 0.24);
+}
+
+@media (max-width: 767px) {
+  /* Match the mobile alignment of the MUNOB and Contact columns. */
+  .footer-area .row > div:nth-child(2),
+  .footer-area .row > div:nth-child(4),
+  .footer-area .row > div:nth-child(4) .widget {
+    text-align: center !important;
+  }
+
+  .footer-area .row > div:nth-child(2) ul,
+  .footer-area .footer-social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0;
+    margin-left: 0;
+    list-style: none;
+  }
+
+  .footer-area .footer-social {
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .footer-area .footer-social li {
+    margin: 0 !important;
+  }
+}
+
+/* Keep the Quick Links and social column centred at every screen size. */
+.footer-area .row > div:nth-child(2),
+.footer-area .row > div:nth-child(4),
+.footer-area .row > div:nth-child(4) .widget {
+  text-align: center;
+}
+
+.footer-area .row > div:nth-child(2) ul,
+.footer-area .footer-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 0;
+  margin-left: 0;
+  list-style: none;
+}
+
+.footer-area .row > div:nth-child(2) ul {
+  flex-direction: column;
+}
+
+.footer-area .footer-social {
+  gap: 10px;
+}
+
+.footer-area .footer-social li {
+  margin: 0 !important;
+}
+
+/* Keep footer links white; match the navbar's gold only on hover. */
+.footer-area .row > div:nth-child(2) ul li a {
+  color: #ffffff !important;
+}
+
+.footer-area .row > div:nth-child(2) ul li a:hover,
+.footer-area .row > div:nth-child(2) ul li a:focus {
+  color: #f7be45 !important;
+}
+
+.footer-area .footer-social li .instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+  color: #ffffff !important;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(214, 36, 159, 0.35);
+}
+
+.footer-area .footer-social li .instagram:hover,
+.footer-area .footer-social li .instagram:focus {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+  color: #ffffff !important;
+  transform: translateY(-2px) scale(1.04);
+}
+
+.footer-area .footer-social li .facebook {
+  background: #3b5998;
+  color: #ffffff !important;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(59, 89, 152, 0.35);
+}
+
+.footer-area .footer-social li .facebook:hover,
+.footer-area .footer-social li .facebook:focus {
+  background: #3b5998;
+  color: #ffffff !important;
+  transform: translateY(-2px) scale(1.04);
+}
