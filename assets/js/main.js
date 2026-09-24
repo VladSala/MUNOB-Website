@@ -101,6 +101,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         var destination = new URL(link.href);
         var key = destination.pathname.split('/').pop() + destination.hash;
+        if (destination.hash === '#contact') {
+          key = 'index.html#contact';
+        }
         itemsByDestination[key] = item;
       });
 
@@ -128,6 +131,10 @@ document.addEventListener('DOMContentLoaded', function () {
     var pageLinks = Array.prototype.slice.call(menu.querySelectorAll('.nav-link'));
     var homeLink = pageLinks.find(function (link) {
       return new URL(link.href).hash === '';
+    });
+    var currentPageLink = pageLinks.find(function (link) {
+      var destination = new URL(link.href);
+      return destination.pathname === window.location.pathname && destination.hash === '';
     });
     var sectionLinks = pageLinks.filter(function (link) {
       var hash = new URL(link.href).hash;
@@ -183,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var footerIsVisible = false;
     var updateActiveLink = function () {
-      var activeLink = homeLink;
+      var activeLink = currentPageLink || homeLink;
       var marker = window.scrollY + navbar.offsetHeight + 24;
 
       if (window.scrollY >= hero.offsetHeight - 130) {
