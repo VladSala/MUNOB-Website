@@ -73,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var toggle = document.querySelector('.navbar-toggler');
   var menu = document.getElementById('main-navbar');
   var hero = document.querySelector('.hero-header');
+  var scrollToHomepageSection = null;
 
   if (menu) {
     var navList = menu.querySelector('.navbar-nav');
@@ -82,12 +83,12 @@ document.addEventListener('DOMContentLoaded', function () {
       'index.html#faq',
       'index.html#pricing',
       'index.html#sponsors',
-      'index.html#contact',
       'newspaper.html',
       'committees.html',
       'country_matrix.html',
       'team.html',
-      'important.html'
+      'important.html',
+      'index.html#contact'
     ];
 
     if (navList) {
@@ -140,6 +141,45 @@ document.addEventListener('DOMContentLoaded', function () {
     var pagePosition = function (element) {
       return element.getBoundingClientRect().top + window.scrollY;
     };
+
+    /* Keep visitors on the homepage and glide to its sections instead of jumping. */
+    scrollToHomepageSection = function (event, link) {
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+        return false;
+      }
+
+      var destination = new URL(link.href, window.location.href);
+      if (destination.pathname !== window.location.pathname) {
+        return false;
+      }
+
+      var target = destination.hash
+        ? document.getElementById(decodeURIComponent(destination.hash.slice(1)))
+        : document.documentElement;
+      if (!target) {
+        return false;
+      }
+
+      event.preventDefault();
+      var destinationTop = destination.hash
+        ? Math.max(0, pagePosition(target) - navbar.offsetHeight - 12)
+        : 0;
+      var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      window.scrollTo({
+        top: destinationTop,
+        behavior: reducedMotion ? 'auto' : 'smooth'
+      });
+      window.history.pushState(null, '', destination.pathname + destination.search + destination.hash);
+      return true;
+    };
+
+    menu.addEventListener('click', function (event) {
+      var link = event.target.closest('.nav-link');
+      if (link && menu.contains(link)) {
+        scrollToHomepageSection(event, link);
+      }
+    });
 
     var footerIsVisible = false;
     var updateActiveLink = function () {
@@ -256,7 +296,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     mobileDrawer.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', closeMenu);
+      link.addEventListener('click', function (event) {
+        closeMenu();
+        if (scrollToHomepageSection) {
+          scrollToHomepageSection(event, link);
+        }
+      });
     });
 
     document.addEventListener('keydown', function (event) {
