@@ -6,7 +6,7 @@
   var body = document.body;
   var layer = document.querySelector('.page-transition-layer');
   var isLeaving = false;
-  var topPause = 360;
+  var topPause = 180;
 
   function transitionWasRequested() {
     try {
@@ -56,23 +56,32 @@
     }
 
     var startedAt = window.performance.now();
-    var maxWait = Math.min(1150, Math.max(500, startPosition / 6));
+    /* Travel time grows gently for lower sections, rather than cutting the
+       browser's scroll short and snapping visitors to the top. */
+    var duration = Math.min(1050, Math.max(420, 320 + startPosition / 12));
 
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    function easeInOutCubic(progress) {
+      return progress < 0.5
+        ? 4 * progress * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+    }
 
-    function waitForTop(now) {
-      var currentPosition = window.pageYOffset || document.documentElement.scrollTop || 0;
+    function animateToTop(now) {
+      var progress = Math.min(1, (now - startedAt) / duration);
+      var remainingDistance = startPosition * (1 - easeInOutCubic(progress));
 
-      if (currentPosition < 2 || now - startedAt >= maxWait) {
-        window.scrollTo(0, 0);
-        window.setTimeout(callback, topPause);
+      window.scrollTo(0, Math.round(remainingDistance));
+
+      if (progress < 1) {
+        window.requestAnimationFrame(animateToTop);
         return;
       }
 
-      window.requestAnimationFrame(waitForTop);
+      window.scrollTo(0, 0);
+      window.setTimeout(callback, topPause);
     }
 
-    window.requestAnimationFrame(waitForTop);
+    window.requestAnimationFrame(animateToTop);
   }
 
   function beginLeaving(destination) {
@@ -82,7 +91,7 @@
 
     window.setTimeout(function () {
       window.location.assign(destination);
-    }, 420);
+    }, 280);
   }
 
   document.addEventListener('click', function (event) {

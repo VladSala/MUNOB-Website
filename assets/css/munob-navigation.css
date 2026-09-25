@@ -761,7 +761,7 @@
   pointer-events: none;
   opacity: 0;
   background: #0c007c;
-  transition: opacity 420ms ease, visibility 0s linear 420ms;
+  transition: opacity 280ms ease, visibility 0s linear 280ms;
 }
 
 body.is-page-transition-leaving .page-transition-layer,
