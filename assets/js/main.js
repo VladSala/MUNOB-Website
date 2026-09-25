@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
       'committees.html',
       'country_matrix.html',
       'team.html',
-      'important.html',
+      'index.html#important-documents',
       'index.html#contact'
     ];
 
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     var sectionLinks = pageLinks.filter(function (link) {
       var hash = new URL(link.href).hash;
-      return hash && document.querySelector(hash);
+      return hash && hash !== '#contact' && document.querySelector(hash);
     });
     var contactLink = pageLinks.find(function (link) {
       return new URL(link.href).hash === '#contact';
@@ -184,7 +184,10 @@ document.addEventListener('DOMContentLoaded', function () {
     menu.addEventListener('click', function (event) {
       var link = event.target.closest('.nav-link');
       if (link && menu.contains(link)) {
-        scrollToHomepageSection(event, link);
+        var handledLocally = scrollToHomepageSection(event, link);
+        if (handledLocally && event.detail > 0) {
+          link.blur();
+        }
       }
     });
 
@@ -306,7 +309,10 @@ document.addEventListener('DOMContentLoaded', function () {
       link.addEventListener('click', function (event) {
         closeMenu();
         if (scrollToHomepageSection) {
-          scrollToHomepageSection(event, link);
+          var handledLocally = scrollToHomepageSection(event, link);
+          if (handledLocally && event.detail > 0) {
+            link.blur();
+          }
         }
       });
     });

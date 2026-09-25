@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Model United Nations of Bucharest - COMMITTEES</title>
+    <title>Model United Nations of Bucharest - TEAM</title>
     <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" >
@@ -23,10 +23,13 @@
     <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
     <!-- This File is Fully Expandable 2025-2026 IT-->
     <link rel="stylesheet" type="text/css" href="assets/css/FooterFix&More.css?=2">
-    <link rel="stylesheet" type="text/css" href="assets/css/munob-navigation.css?v=24">
+    <link rel="stylesheet" type="text/css" href="assets/css/munob-navigation.css?v=61">
+    <link rel="stylesheet" type="text/css" href="assets/css/team.css?v=4">
+    <script src="assets/js/page-transition-prepare.js?v=1"></script>
 
   </head>
-  <body class="news-page">
+  <body class="news-page team-page">
+    <div class="page-transition-layer" aria-hidden="true"></div>
 
     <!-- Header Area wrapper Starts -->
     <header id="header-wrap">
@@ -41,33 +44,35 @@
               <span class="icon-menu"></span>
               <span class="icon-menu"></span>
             </button>
-            <a href="index.html" class="navbar-brand"><img src="assets/img/logos/miniblue.png" alt="" ></a>
+            <a href="index.html" class="navbar-brand navbar-logo" data-page-transition><img src="assets/img/logos/miniblue.png" alt="MUNOB"></a>
           </div>
           <div class="collapse navbar-collapse" id="main-navbar">
             <ul class="navbar-nav mr-auto w-100 justify-content-end">
               <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="index.html" data-page-transition>
                   Home
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item team-nav-secondary">
                 <a class="nav-link" href="index.html#about">
                   About
                 </a>
               </li>
              <li class="nav-item">
-                        <a class="nav-link" href="newspaper.html">News</a>
+                        <a class="nav-link" href="newspaper.html" data-page-transition>News</a>
                         </li>
               <li class="nav-item ">
-                <a class="nav-link" href="committees.html">
+                <a class="nav-link" href="committees.html" data-page-transition>
                   Committees
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/country_matrix.html">
+                <a class="nav-link" href="country_matrix.html" data-page-transition>
                   Country Matrix </a>
               </li>
-              
+              <li class="nav-item active">
+                <a class="nav-link active" href="team.html">Team</a>
+              </li>
 
               <!-- <li class="nav-item">-->
               <!--  <a class="nav-link" href="index.html#schedules">-->
@@ -79,24 +84,19 @@
               <!--    Team-->
               <!--  </a>-->
               <!--</li> -->
-               <li class="nav-item">
-                <a class="nav-link" href="important.html">
-                  Important
-                </a>
-              </li>
-               <li class="nav-item">
+               <li class="nav-item team-nav-secondary">
                 <a class="nav-link" href="index.html#faq">
                   Faq
                 </a>
               </li> 
               
-              <li class="nav-item">
+              <li class="nav-item team-nav-secondary">
                 <a class="nav-link" href="index.html#pricing">
                   Registration
                 </a>
               </li>
               
-              <li class="nav-item">
+              <li class="nav-item team-nav-secondary">
                 <a class="nav-link" href="index.html#sponsors">
                   Sponsors
                 </a> 
@@ -104,7 +104,7 @@
             
               
               <li class="nav-item">
-                <a class="nav-link" href="index.html#contact">
+                <a class="nav-link" href="#contact">
                   Contact
                 </a>
               </li>
@@ -210,6 +210,17 @@
       </nav>
       <!-- Navbar End -->
 
+      <section class="hero-header team-hero">
+        <div class="hero-content">
+          <a href="#team" class="hero-logo">
+            <img src="assets/img/logos/miniblue2.png" alt="MUNOB logo">
+          </a>
+          <h1>MUNOB 2027 Team</h1>
+          <p>The students and teachers whose work brings MUNOB to life.</p>
+        </div>
+      </section>
+    </header>
+
       <!-- Main Carousel Section Start -->
      
     <!-- Committee Section End -->
@@ -239,13 +250,12 @@
       
       <!-- Organising Team Section Start -->
     
-    <section id="team" class="section-padding text-center">
+    <section id="team" class="team-gallery-section text-center">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="section-title-header text-center">
-                    <h1 class="section-title wow fadeInUp" data-wow-delay="0.2s">Organizing Team</h1>
-                    <p class="wow fadeInDown" data-wow-delay="0.2s">Model United Nations Of Bucharest 2026</p>
+                    <h1 class="section-title wow fadeInUp" data-wow-delay="0.2s">Meet the Organising Team</h1>
                 </div>
             </div>
         </div>
@@ -688,6 +698,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 </section>
 
     
@@ -776,7 +788,8 @@
     <script src="assets/js/wow.js"></script>
     <script src="assets/js/jquery.slicknav.js"></script>
     <script src="assets/js/nivo-lightbox.js"></script>
-    <script src="assets/js/main.js?v=10"></script>
+    <script src="assets/js/main.js?v=17"></script>
+    <script src="assets/js/page-transition.js?v=5"></script>
    <!-- <script src="assets/js/footer.js"></script> -->
   </body>
 </html> 
