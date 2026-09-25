@@ -1,6 +1,9 @@
 (function () {
   'use strict';
 
+  /* Shared navigation convention: add data-page-transition to links between
+     completed MUNOB pages, each of which includes this script and its layer. */
+
   var transitionKey = 'munob-page-transition';
   var root = document.documentElement;
   var body = document.body;

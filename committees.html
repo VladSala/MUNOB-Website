@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <script src="https://kit.fontawesome.com/c8676d39a5.js" crossorigin="anonymous"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -12,6 +11,8 @@
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" >
     <!-- Icon -->
     <link rel="stylesheet" type="text/css" href="assets/fonts/line-icons.css">
+    <link rel="stylesheet" type="text/css" href="assets/vendor/fontawesome/css/fontawesome.min.css?v=6.7.2">
+    <link rel="stylesheet" type="text/css" href="assets/vendor/fontawesome/css/solid.min.css?v=6.7.2">
     <!-- Slicknav -->
     <link rel="stylesheet" type="text/css" href="assets/css/slicknav.css">
     <!-- Nivo Lightbox -->
@@ -19,22 +20,23 @@
     <!-- Animate -->
     <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
     <!-- Main Style -->
-    <link rel="stylesheet" type="text/css" href="assets/css/main.css?v=2">
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css?v=4">
     <!-- Responsive Style -->
     <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
     <!-- This File is Fully Expandable 2025-2026 IT-->
     <link rel="stylesheet" type="text/css" href="assets/css/FooterFix&More.css?=2"> 
-    <link rel="stylesheet" type="text/css" href="assets/css/munob-navigation.css?v=24">
+    <link rel="stylesheet" type="text/css" href="assets/css/munob-navigation.css?v=60">
+    <script src="assets/js/page-transition-prepare.js?v=1"></script>
 
   </head>
-  <body class="news-page">
+  <body class="news-page committees-page">
+    <div class="page-transition-layer" aria-hidden="true"></div>
 
     <!-- Header Area wrapper Starts -->
     <header id="header-wrap">
       <!-- Navbar Start -->
       <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar">
         <div class="container">
-          <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -42,144 +44,32 @@
               <span class="icon-menu"></span>
               <span class="icon-menu"></span>
             </button>
-            <a href="index.html" class="navbar-brand"><img src="assets/img/logos/miniblue.png" alt="" ></a>
+            <a href="index.html" class="navbar-brand navbar-logo" data-page-transition><img src="assets/img/logos/miniblue.png" alt="MUNOB"></a>
           </div>
           <div class="collapse navbar-collapse" id="main-navbar">
             <ul class="navbar-nav mr-auto w-100 justify-content-end">
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">
-                  Home
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="index.html#about">
-                  About
-                </a>
-              </li>
-             <li class="nav-item">
-                        <a class="nav-link" href="newspaper.html">News</a>
-                        </li>
-              <li class="nav-item ">
-                <a class="nav-link" href="committees.html">
-                  Committees
-                </a>
-              </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="country_matrix.html">
-                  CountryMatrix
-                </a>
-              </li>
-              
-
-              <!-- <li class="nav-item">-->
-              <!--  <a class="nav-link" href="index.html#schedules">-->
-              <!--    Schedule-->
-              <!--  </a>-->
-              <!--</li> -->
-              <!--<li class="nav-item">-->
-              <!--  <a class="nav-link" href="team.html">-->
-              <!--    Team-->
-              <!--  </a>-->
-              <!--</li> -->
-               <li class="nav-item">
-                <a class="nav-link" href="important.html">
-                  Important
-                </a>
-              </li>
-             
-               <li class="nav-item">
-                <a class="nav-link" href="index.html#faq">
-                  Faq
-                </a>
-              </li> 
-              
-              <li class="nav-item">
-                <a class="nav-link" href="index.html#pricing">
-                  Registration
-                </a>
-              </li>
-              
-              <li class="nav-item">
-                <a class="nav-link" href="index.html#sponsors">
-                  Sponsors
-                </a> 
-              </li>
-            
-              
-              <li class="nav-item">
-                <a class="nav-link" href="index.html#contact">
-                  Contact
-                </a>
-              </li>
+              <li class="nav-item"><a class="nav-link" href="index.html" data-page-transition>Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="newspaper.html" data-page-transition>News</a></li>
+              <li class="nav-item active"><a class="nav-link active" href="committees.html">Committees</a></li>
+              <li class="nav-item"><a class="nav-link" href="country_matrix.html">CountryMatrix</a></li>
+              <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+              <li class="nav-item"><a class="nav-link" href="important.html">Important</a></li>
+              <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
             </ul>
           </div>
         </div>
-
-        <!-- Mobile Menu Start -->
-        <ul class="mobile-menu">
-          <li>
-            <a class="page-scrool" href="index.html#header-wrap">Home</a>
-          </li>
-          <li>
-            <a class="page-scrool" href="index.html#about">About</a>
-          </li>
-           <!--li>
-                <a class="page-scrool" href="newspaper.html">Newspaper</a>
-          </li--> 
-          <li>
-                <a class="page-scrool" href="committees.html">Committees</a>
-          </li>
-          <li>
-                <a class="page-scrool" href="country_matrix.html">Country Matrix</a>
-          </li>
-          <!--<li>-->
-          <!--      <a class="page-scrool" href="documents.html">Documents</a>-->
-          <!--</li>-->
-          
-          
-          
-          
-          
-          <li>
-                <a class="page-scrool" href="important.html">Important Documents</a>
-          </li>
-          
-          <!--li>
-             <a class="page-scroll" href="index.html#schedules">Event Schedule</a>
-          </li-->
-        
-          <!--li>
-            <a class="page-scroll" href="team.html">Team</a>
-          </li--> 
-           <li>
-            <a class="page-scroll" href="index.html#faq">FAQ</a>
-          </li> 
-          <!--li>
-            <a class="page-scroll" href="index.html#pricing">Registration</a>
-          </li-->
-          <li>
-            <a class="page-scroll" href="index.html#contact">Contact</a>
-          </li>
-        </ul>
-        <!-- Mobile Menu End -->
-        
-
       </nav>
       <!-- Navbar End -->
 
-      <!-- Main Carousel Section Start -->
-      <div id="main-slide" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="d-block w-100" src="assets/img/slider/10.png" alt="First slide">
-            <div class="carousel-caption d-md-block">
-              <p class="fadeInUp wow" data-wow-delay=".6s">Model United Nations Of Bucharest 2026</p>
-              <h1 class="wow fadeInDown heading" data-wow-delay=".4s">This year's committees.</h1>
-            </div>
-          </div>
+      <section class="hero-header committees-hero">
+        <div class="hero-content">
+          <a href="#committees" class="hero-logo">
+            <img src="assets/img/logos/miniblue2.png" alt="MUNOB logo">
+          </a>
+          <h1>MUNOB 2027 Committees</h1>
         </div>
-      </div>
-      <!-- Main Carousel Section End -->
+      </section>
+    </header>
 
     <!-- Committee Section Start -->
     <section id="committees" class="section-padding">
@@ -200,7 +90,7 @@
               <div class="card">
                 <div class="card-header" id="headingOne">
                   <div class="header-title collapsed" data-toggle="collapse" data-target="#questionOne" aria-expanded="true" aria-controls="collapseOne">
-                    <i class="fa-solid fa-crosshairs"></i> Disarmament and International Security Committee (GA1)
+                    <i class="fa-solid fa-crosshairs" aria-hidden="true"></i> Disarmament and International Security Committee (GA1)
                   </div>
                 </div>
                 <div id="questionOne" class="collapse" aria-labelledby="headingOne" data-parent="#question">
@@ -220,7 +110,7 @@
               <div class="card">
                 <div class="card-header" id="headingTwo">
                     <div class="header-title collapsed" data-toggle="collapse" data-target="#questionTwo" aria-expanded="false" aria-controls="questionTwo">
-                      <i class="fa-solid fa-bitcoin-sign"></i>  Economic and Financial Committee (GA2) 
+                      <i class="fa-solid fa-bitcoin-sign" aria-hidden="true"></i> Economic and Financial Committee (GA2)
                     </div>
                 </div>
                 <div id="questionTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#question">
@@ -239,7 +129,7 @@
               <div class="card">
                 <div class="card-header" id="headingTwo">
                     <div class="header-title collapsed" data-toggle="collapse" data-target="#questionTree" aria-expanded="false" aria-controls="questionTree">
-                      <i class="fa-solid fa-globe"></i>  Social, Humanitarian & Cultural Committee (GA3) 
+                      <i class="fa-solid fa-globe" aria-hidden="true"></i> Social, Humanitarian & Cultural Committee (GA3)
                     </div>
                 </div>
                 <div id="questionTree" class="collapse" aria-labelledby="headingTree" data-parent="#question">
@@ -260,7 +150,7 @@
               <div class="card">
                 <div class="card-header" id="headingThree">
                   <div class="header-title collapsed" data-toggle="collapse" data-target="#questionThree" aria-expanded="false" aria-controls="questionThree">
-                    <i class="fa-solid fa-pencil-alt"></i>  Special Political & Decolonization Committee (GA4)   
+                    <i class="fa-solid fa-pencil-alt" aria-hidden="true"></i> Special Political & Decolonization Committee (GA4)
                   </div>
                 </div>
                 <div id="questionThree" class="collapse" aria-labelledby="headingThree" data-parent="#question">
@@ -278,7 +168,7 @@
              <div class="card">
                 <div class="card-header" id="headingThree3">
                   <div class="header-title collapsed" data-toggle="collapse" data-target="#questionTwo2" aria-expanded="false" aria-controls="questionTwo2">
-                    <i class="fa-solid fa-gavel"></i> Legal (GA6)
+                    <i class="fa-solid fa-gavel" aria-hidden="true"></i> Legal (GA6)
                   </div>
                 </div>
                 <div id="questionTwo2" class="collapse" aria-labelledby="headingThree2" data-parent="#question">
@@ -296,7 +186,7 @@
               <div class="card">
                 <div class="card-header" id="headingThree">
                   <div class="header-title collapsed" data-toggle="collapse" data-target="#questionFour" aria-expanded="false" aria-controls="questionFour">
-                   <i class="fa-solid fa-database"></i> United Nations Office on Drugs and Crime (UNODC) 
+                   <i class="fa-solid fa-database" aria-hidden="true"></i> United Nations Office on Drugs and Crime (UNODC)
                   </div>
                 </div>
                 <div id="questionFour" class="collapse" aria-labelledby="headingThree" data-parent="#question">
@@ -317,7 +207,7 @@
               <div class="card">
                 <div class="card-header" id="headingThree3">
                   <div class="header-title collapsed" data-toggle="collapse" data-target="#questionTwo4" aria-expanded="false" aria-controls="questionTwo4">
-                    <i class="fa-solid fa-user"></i> Human Rights Council (UNHRC)
+                    <i class="fa-solid fa-user" aria-hidden="true"></i> Human Rights Council (UNHRC)
                   </div>
                 </div>
                 <div id="questionTwo4" class="collapse" aria-labelledby="headingThree3" data-parent="#question">
@@ -335,7 +225,7 @@
               <div class="card">
                 <div class="card-header" id="headingTwo5">
                     <div class="header-title collapsed" data-toggle="collapse" data-target="#questionTwo5" aria-expanded="false" aria-controls="questionTwo5">
-                      <i class="fa-solid fa-heart"></i> Commission on the Status of Women (CSW)
+                      <i class="fa-solid fa-heart" aria-hidden="true"></i> Commission on the Status of Women (CSW)
                     </div>
                 </div>
                 <div id="questionTwo5" class="collapse" aria-labelledby="headingTwo5" data-parent="#question">
@@ -355,7 +245,7 @@
                <div class="card">
                 <div class="card-header" id="headingTwo42">
                     <div class="header-title collapsed" data-toggle="collapse" data-target="#questionTwo42" aria-expanded="false" aria-controls="questionTwo42">
-                   <i class="fa-solid fa-stethoscope"></i> World Health Organization (WHO)
+                   <i class="fa-solid fa-stethoscope" aria-hidden="true"></i> World Health Organization (WHO)
                     </div>
                 </div>
                 <div id="questionTwo42" class="collapse" aria-labelledby="headingTwo42" data-parent="#question">
@@ -376,7 +266,7 @@
               <div class="card">
                 <div class="card-header" id="headingTwo421">
                     <div class="header-title collapsed" data-toggle="collapse" data-target="#questionTwo421" aria-expanded="false" aria-controls="questionTwo421">
-                      <i class="fa-solid fa-flag"></i> Counter-Terrorism Committee (CTC)
+                      <i class="fa-solid fa-flag" aria-hidden="true"></i> Counter-Terrorism Committee (CTC)
                     </div>
                 </div>
                 <div id="questionTwo421" class="collapse" aria-labelledby="headingTwo421" data-parent="#question">
@@ -395,7 +285,7 @@
                <div class="card">
                 <div class="card-header" id="headingThree3">
                   <div class="header-title collapsed" data-toggle="collapse" data-target="#questionTwo25" aria-expanded="false" aria-controls="questionTwo25">
-                    <i class="fas fa-scale-balanced"></i> Commission on Crime Prevention & Criminal Justice (CCPJ)
+                    <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i> Commission on Crime Prevention & Criminal Justice (CCPJ)
                   </div>
                 </div>
                 <div id="questionTwo25" class="collapse" aria-labelledby="headingThree25" data-parent="#question">
@@ -413,7 +303,7 @@
               <div class="card">
                 <div class="card-header" id="headingTwo3">
                     <div class="header-title collapsed" data-toggle="collapse" data-target="#questionTwo3" aria-expanded="false" aria-controls="questionTwo3">
-                    <i class="fa-solid fa-shield"></i> Security Council (SC)
+                    <i class="fa-solid fa-shield" aria-hidden="true"></i> Security Council (SC)
                     </div>
                 </div>
                 <div id="questionTwo3" class="collapse" aria-labelledby="headingTwo3" data-parent="#question">
@@ -426,7 +316,6 @@
                   </div>
                 </div>
               </div>
-              </div> 
              
               
               <!--<div class="card">-->
@@ -446,21 +335,19 @@
               <div class="card">
                 <div class="card-header" id="headingTwo6">
                     <div class="header-title collapsed" data-toggle="collapse" data-target="#questionTwo6" aria-expanded="false" aria-controls="questionTwo6">
-                      <i class="lni lni-question-circle"></i>  Crisis Council (CC)
+                      <i class="lni lni-question-circle" aria-hidden="true"></i>  Crisis Council (CC)
                     </div>
                 </div>
                 <div id="questionTwo6" class="collapse" aria-labelledby="headingTwo6" data-parent="#question">
                   <div class="card-body">
                    <strong>Topic:</strong> To Be Announced...
-                  </div>
                 </div>
               </div>
-            </div>
-            </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
     </section>
 
 
@@ -548,7 +435,8 @@
     <script src="assets/js/wow.js"></script>
     <script src="assets/js/jquery.slicknav.js"></script>
     <script src="assets/js/nivo-lightbox.js"></script>
-    <script src="assets/js/main.js?v=10"></script>
+    <script src="assets/js/main.js?v=14"></script>
+    <script src="assets/js/page-transition.js?v=5"></script>
     <!-- <script src="assets/js/footer.js"></script> -->
   </body>
 </html>
