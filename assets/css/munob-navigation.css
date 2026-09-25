@@ -749,3 +749,30 @@
   color: #ffffff !important;
   transform: translateY(-2px) scale(1.04);
 }
+/* Shared animated handoff between the Home and News hero sections. */
+.page-transition-layer {
+  position: fixed;
+  z-index: 20000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  background: #0c007c;
+  transition: opacity 420ms ease, visibility 0s linear 420ms;
+}
+
+body.is-page-transition-leaving .page-transition-layer,
+html.munob-transition-arriving .page-transition-layer {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+}
+
+.page-transition-layer.page-transition-layer--opening {
+  visibility: visible;
+  opacity: 0;
+  transition-delay: 0s;
+}

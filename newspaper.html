@@ -23,11 +23,13 @@
     <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
     <!-- This File is Fully Expandable 2026-2027 IT-->
     <link rel="stylesheet" type="text/css" href="assets/css/FooterFix&More.css?=2"> 
-    <link rel="stylesheet" type="text/css" href="assets/css/munob-navigation.css?v=53">
+    <link rel="stylesheet" type="text/css" href="assets/css/munob-navigation.css?v=56">
+    <script>try { if (sessionStorage.getItem('munob-page-transition') === '1') { document.documentElement.classList.add('munob-transition-arriving'); } } catch (error) {}</script>
 
 
   </head>
    <body class="news-page">
+    <div class="page-transition-layer" aria-hidden="true"></div>
 
     <!-- Header Area wrapper Starts -->
     <header id="header-wrap">
@@ -40,11 +42,11 @@
               <span class="icon-menu"></span>
               <span class="icon-menu"></span>
             </button>
-            <a href="index.html" class="navbar-brand navbar-logo"><img src="assets/img/logos/miniblue.png" alt="MUNOB"></a>
+            <a href="index.html" class="navbar-brand navbar-logo" data-page-transition><img src="assets/img/logos/miniblue.png" alt="MUNOB"></a>
           </div>
           <div class="collapse navbar-collapse" id="main-navbar">
             <ul class="navbar-nav mr-auto w-100 justify-content-end">
-              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="index.html" data-page-transition>Home</a></li>
               <li class="nav-item"><a class="nav-link" href="newspaper.html">News</a></li>
               <li class="nav-item"><a class="nav-link" href="committees.html">Committees</a></li>
               <li class="nav-item"><a class="nav-link" href="country_matrix.html">CountryMatrix</a></li>
@@ -227,6 +229,7 @@
     <script src="assets/js/jquery.slicknav.js"></script>
     <script src="assets/js/nivo-lightbox.js"></script>
     <script src="assets/js/main.js?v=10"></script>
+    <script src="assets/js/page-transition.js?v=3"></script>
    <!-- <script src="assets/js/footer.js"></script> -->
   </body>
 </html>

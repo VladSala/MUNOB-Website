@@ -30,10 +30,12 @@
     <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
     <!-- This File is Fully Expandable 2026-2027 IT-->
     <link rel="stylesheet" type="text/css" href="assets/css/FooterFix&More.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/munob-navigation.css?v=24">
+    <link rel="stylesheet" type="text/css" href="assets/css/munob-navigation.css?v=56">
+    <script>try { if (sessionStorage.getItem('munob-page-transition') === '1') { document.documentElement.classList.add('munob-transition-arriving'); } } catch (error) {}</script>
 
   </head>
   <body>
+    <div class="page-transition-layer" aria-hidden="true"></div>
 
     <!-- Header Area wrapper Starts -->
 
@@ -63,7 +65,7 @@
         <ul class="navbar-nav mr-auto w-100 justify-content-end">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="newspaper.html">News</a></li>
+          <li class="nav-item"><a class="nav-link" href="newspaper.html" data-page-transition>News</a></li>
           <li class="nav-item "><a class="nav-link" href="committees.html">Committees</a></li>
           <li class="nav-item"><a class="nav-link" href="country_matrix.html">CountryMatrix</a></li>
           <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
@@ -80,7 +82,7 @@
     <ul class="mobile-menu">
       <li><a href="index.html#header-wrap">Home</a></li>
       <li><a href="index.html#about">About</a></li>
-      <li><a href="newspaper.html">News</a></li>
+      <li><a href="newspaper.html" data-page-transition>News</a></li>
       <li><a href="committees.html">Committees</a></li>
     <li>
                 <a class="page-scrool" href="country_matrix.html">Country Matrix</a>
@@ -2361,5 +2363,6 @@ body.scrolled .slicknav_btn.slicknav_collapsed .slicknav_icon-bar:nth-child(3){
     <script src="assets/js/jquery.slicknav.js"></script>
     <script src="assets/js/nivo-lightbox.js"></script>
   <script src="assets/js/main.js?v=14"></script>
+  <script src="assets/js/page-transition.js?v=3"></script>
   </body>
 </html>
