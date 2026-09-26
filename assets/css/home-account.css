@@ -375,9 +375,7 @@ body.munob-account-open {
 }
 
 @media (max-width: 1199px) {
-  .scrolling-navbar .navbar-brand,
-  .scrolling-navbar.munob-on-hero:not(.munob-nav-scrolled) .navbar-brand,
-  .scrolling-navbar.munob-on-hero.munob-nav-scrolled .navbar-brand {
+  .scrolling-navbar .navbar-brand {
     top: 13px !important;
     right: auto !important;
     left: 50% !important;
@@ -390,6 +388,19 @@ body.munob-account-open {
     align-items: center;
     justify-content: center;
     transform: translateX(-50%) !important;
+  }
+
+  .scrolling-navbar.munob-on-hero:not(.munob-nav-scrolled) .navbar-brand {
+    display: none !important;
+  }
+
+  .scrolling-navbar.munob-on-hero.munob-nav-scrolled .navbar-brand {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translateX(-50%) !important;
+    transition: none !important;
   }
 
   .scrolling-navbar .navbar-brand img {
