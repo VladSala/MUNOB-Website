@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Sign in or register for the MUNOB 2027 conference platform.">
+  <title>MUNOB 2027 - Account</title>
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="assets/css/munob-navigation.css?v=56">
+  <link rel="stylesheet" type="text/css" href="assets/css/account-portal.css?v=1">
+  <script src="assets/js/page-transition-prepare.js?v=1"></script>
+</head>
+<body class="account-page">
+  <div class="page-transition-layer" aria-hidden="true"></div>
+
+  <header class="account-topbar">
+    <a class="account-brand" href="index.html" data-page-transition aria-label="MUNOB Home">
+      <img src="assets/img/logos/miniblue.png" alt="">
+      <span><strong>MUNOB</strong><small>BUCHAREST 2027</small></span>
+    </a>
+    <a class="account-back" href="index.html" data-page-transition>
+      <span aria-hidden="true">&larr;</span> Back to website
+    </a>
+  </header>
+
+  <main class="account-layout">
+    <section class="account-card" aria-label="Account access">
+      <div class="account-card-heading">
+        <div class="account-card-logo" aria-hidden="true"><img src="assets/img/logos/miniblue.png" alt=""></div>
+        <div>
+          <p>WELCOME TO MUNOB</p>
+          <h2>Access your account</h2>
+        </div>
+      </div>
+
+      <div class="account-tabs" role="tablist" aria-label="Account options">
+        <button class="account-tab is-active" type="button" role="tab" aria-selected="true"
+          aria-controls="account-login-panel" id="account-login-tab" data-auth-mode="login">Sign in</button>
+        <button class="account-tab" type="button" role="tab" aria-selected="false"
+          aria-controls="account-register-panel" id="account-register-tab" data-auth-mode="register">Register</button>
+      </div>
+
+      <div class="account-panel is-active" id="account-login-panel" role="tabpanel" aria-labelledby="account-login-tab">
+        <p class="account-panel-intro">Welcome back. Enter your details to continue.</p>
+        <form class="account-form" action="https://munob.ro/platform/login.php" method="post">
+          <label class="account-field">
+            <span>Email address</span>
+            <input type="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+          </label>
+          <label class="account-field">
+            <span>Password</span>
+            <span class="account-password-wrap">
+              <input type="password" name="password" autocomplete="current-password" placeholder="Enter your password" required>
+              <button class="account-password-toggle" type="button" aria-label="Show password">Show</button>
+            </span>
+          </label>
+          <button class="account-submit" type="submit">
+            Sign in to MUNOB <span aria-hidden="true">&rarr;</span>
+          </button>
+        </form>
+        <p class="account-form-note">Having trouble signing in? Contact the MUNOB IT team for account support.</p>
+      </div>
+
+      <div class="account-panel" id="account-register-panel" role="tabpanel" aria-labelledby="account-register-tab" hidden>
+        <p class="account-panel-intro">Choose your role. You can change this before submitting.</p>
+
+        <div class="account-role-switch" role="group" aria-label="Registration role">
+          <button class="account-role-choice is-active" type="button" data-register-role="delegate" aria-pressed="true">
+            <span class="account-role-choice-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="m3 9 9-5 9 5-9 5-9-5Zm4 3.2V17c2.9 2.1 7.1 2.1 10 0v-4.8" /></svg>
+            </span>
+            <span><strong>Delegate</strong><small>Join an existing school delegation</small></span>
+          </button>
+          <button class="account-role-choice" type="button" data-register-role="director" aria-pressed="false">
+            <span class="account-role-choice-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 5.5h16v12H4zM8 21h8M12 17.5V21M8 10l2.5 2.5L16 8" /></svg>
+            </span>
+            <span><strong>MUN Director</strong><small>Create and manage a delegation</small></span>
+          </button>
+        </div>
+
+        <form class="account-form account-registration-form is-active" action="https://munob.ro/platform/student-register.php"
+          method="post" id="delegate-registration-form" data-registration-form="delegate">
+          <label class="account-field account-field-full">
+            <span>High school</span>
+            <input type="text" name="selectHighSchool" list="munob-school-list" autocomplete="organization"
+              placeholder="Start typing your registered high school" required>
+            <datalist id="munob-school-list"></datalist>
+            <small>Your MUN Director must register the school before delegates can join it.</small>
+          </label>
+          <label class="account-field">
+            <span>First name</span>
+            <input type="text" name="firstname" autocomplete="given-name" required>
+          </label>
+          <label class="account-field">
+            <span>Last name</span>
+            <input type="text" name="lastname" autocomplete="family-name" required>
+          </label>
+          <label class="account-field account-field-full">
+            <span>Email address</span>
+            <input type="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+          </label>
+          <label class="account-field">
+            <span>Password</span>
+            <span class="account-password-wrap">
+              <input type="password" name="password" autocomplete="new-password" minlength="8" required>
+              <button class="account-password-toggle" type="button" aria-label="Show password">Show</button>
+            </span>
+          </label>
+          <label class="account-field">
+            <span>Confirm password</span>
+            <span class="account-password-wrap">
+              <input type="password" name="confirm_password" autocomplete="new-password" minlength="8" required>
+              <button class="account-password-toggle" type="button" aria-label="Show password">Show</button>
+            </span>
+          </label>
+          <button class="account-submit account-field-full" type="submit">
+            Create delegate account <span aria-hidden="true">&rarr;</span>
+          </button>
+        </form>
+
+        <form class="account-form account-registration-form" action="https://munob.ro/platform/teacher-register.php"
+          method="post" id="director-registration-form" data-registration-form="director" hidden>
+          <label class="account-field">
+            <span>First name</span>
+            <input type="text" name="firstname" autocomplete="given-name" required>
+          </label>
+          <label class="account-field">
+            <span>Last name</span>
+            <input type="text" name="lastname" autocomplete="family-name" required>
+          </label>
+          <label class="account-field account-field-full">
+            <span>Email address</span>
+            <input type="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+          </label>
+          <label class="account-field account-field-full">
+            <span>Phone number</span>
+            <input type="tel" name="phonenumber" autocomplete="tel" placeholder="+40 ..." required>
+          </label>
+          <label class="account-field">
+            <span>High school name</span>
+            <input type="text" name="highschool" autocomplete="organization" required>
+          </label>
+          <label class="account-field">
+            <span>High school city</span>
+            <input type="text" name="city" autocomplete="address-level2" required>
+          </label>
+          <label class="account-field">
+            <span>Password</span>
+            <span class="account-password-wrap">
+              <input type="password" name="password" autocomplete="new-password" minlength="8" required>
+              <button class="account-password-toggle" type="button" aria-label="Show password">Show</button>
+            </span>
+          </label>
+          <label class="account-field">
+            <span>Confirm password</span>
+            <span class="account-password-wrap">
+              <input type="password" name="confirm_password" autocomplete="new-password" minlength="8" required>
+              <button class="account-password-toggle" type="button" aria-label="Show password">Show</button>
+            </span>
+          </label>
+          <label class="account-checkbox account-field-full">
+            <input type="checkbox" name="Active" value="1">
+            <span>I am an English teacher.</span>
+          </label>
+          <button class="account-submit account-field-full" type="submit">
+            Create MUN Director account <span aria-hidden="true">&rarr;</span>
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/account-portal.js?v=1"></script>
+  <script src="assets/js/page-transition.js?v=5"></script>
+</body>
+</html>

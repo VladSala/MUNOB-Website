@@ -1,0 +1,498 @@
+/* Home account entry point and modal. Kept separate from the shared navigation. */
+.munob-account-trigger {
+  position: fixed;
+  z-index: 1403;
+  top: 21px;
+  right: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-width: 118px;
+  height: 46px;
+  padding: 0 18px;
+  border: 1px solid rgba(247, 190, 69, 0.9);
+  border-radius: 999px;
+  background: rgba(12, 3, 126, 0.76);
+  box-shadow: 0 9px 25px rgba(3, 2, 55, 0.18);
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.055em;
+  line-height: 1;
+  text-transform: uppercase;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.munob-account-trigger:hover,
+.munob-account-trigger:focus-visible,
+.munob-account-trigger[aria-expanded="true"] {
+  background: #f7be45;
+  box-shadow: 0 11px 28px rgba(247, 190, 69, 0.3);
+  color: #111c61;
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.munob-account-trigger-icon {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+/* Over the opening hero the action should feel like part of the navigation,
+   not a second floating card. The contained treatment returns on scroll. */
+@media (min-width: 1200px) {
+  .scrolling-navbar.munob-on-hero:not(.munob-nav-scrolled) .munob-account-trigger {
+    min-width: 108px;
+    height: 42px;
+    padding: 0 5px;
+    border-color: transparent;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .scrolling-navbar.munob-on-hero:not(.munob-nav-scrolled) .munob-account-trigger:hover,
+  .scrolling-navbar.munob-on-hero:not(.munob-nav-scrolled) .munob-account-trigger:focus-visible,
+  .scrolling-navbar.munob-on-hero:not(.munob-nav-scrolled) .munob-account-trigger[aria-expanded="true"] {
+    background: transparent;
+    box-shadow: none;
+    color: #f7be45;
+    transform: none;
+  }
+}
+
+/* On Home's sticky white navbar, the small logo belongs on the left. */
+@media (min-width: 1200px) {
+  .scrolling-navbar.munob-nav-scrolled .navbar-brand {
+    top: 12px !important;
+    right: auto !important;
+    left: 28px !important;
+  }
+}
+
+/* The complete Home menu is intentionally wide. Keep the account action clear
+   of Contact on compact laptops, then reveal its label on larger screens. */
+@media (min-width: 1200px) and (max-width: 1439px) {
+  .munob-account-trigger {
+    right: 18px;
+    width: 46px;
+    min-width: 46px;
+    padding: 0;
+  }
+
+  .munob-account-trigger-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+.munob-account-modal {
+  position: fixed;
+  z-index: 2200;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: visibility 220ms ease, opacity 220ms ease;
+}
+
+.munob-account-modal[hidden] {
+  display: none;
+}
+
+.munob-account-modal.is-open {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.munob-account-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 2, 44, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.munob-account-dialog {
+  position: relative;
+  width: min(100%, 580px);
+  max-height: calc(100vh - 48px);
+  padding: 38px 38px 34px;
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 92% 8%, rgba(247, 190, 69, 0.19), transparent 30%),
+    linear-gradient(145deg, #fff 0%, #f7f7ff 100%);
+  box-shadow: 0 28px 80px rgba(2, 0, 53, 0.42);
+  color: #111c61;
+  opacity: 0;
+  transform: translateY(18px) scale(0.975);
+  transition: opacity 220ms ease, transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.munob-account-modal.is-open .munob-account-dialog {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.munob-account-dialog::before {
+  position: absolute;
+  top: 0;
+  right: 68px;
+  left: 68px;
+  height: 4px;
+  border-radius: 0 0 6px 6px;
+  background: #f7be45;
+  content: '';
+}
+
+.munob-account-close {
+  position: absolute;
+  top: 17px;
+  right: 17px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid rgba(17, 28, 97, 0.15);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.74);
+  color: #111c61;
+  cursor: pointer;
+  font-size: 27px;
+  line-height: 1;
+  transition: border-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.munob-account-close:hover,
+.munob-account-close:focus-visible {
+  border-color: #f7be45;
+  color: #0f00b8;
+  outline: none;
+  transform: rotate(7deg);
+}
+
+.munob-account-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  margin-bottom: 17px;
+  border: 1px solid rgba(15, 0, 184, 0.12);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 9px 25px rgba(15, 0, 184, 0.1);
+}
+
+.munob-account-mark img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.munob-account-eyebrow {
+  margin: 0 0 7px;
+  color: #b57b00;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.munob-account-dialog h2 {
+  margin: 0 48px 9px 0;
+  color: #111c61;
+  font-size: clamp(1.65rem, 4vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+  text-transform: none;
+}
+
+.munob-account-dialog > p:not(.munob-account-eyebrow) {
+  margin: 0 0 24px;
+  color: #5d6487;
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+.munob-account-login,
+.munob-account-role {
+  text-decoration: none !important;
+}
+
+.munob-account-login {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  min-height: 82px;
+  padding: 17px 21px;
+  border: 1px solid rgba(247, 190, 69, 0.9);
+  border-radius: 16px;
+  background: linear-gradient(135deg, #1205aa 0%, #08005f 100%);
+  box-shadow: 0 13px 27px rgba(15, 0, 184, 0.18);
+  color: #fff !important;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.munob-account-login:hover,
+.munob-account-login:focus-visible {
+  box-shadow: 0 16px 32px rgba(15, 0, 184, 0.28);
+  outline: none;
+  transform: translateY(-3px);
+}
+
+.munob-account-login strong,
+.munob-account-role strong {
+  display: block;
+  font-size: 0.98rem;
+  font-weight: 800;
+}
+
+.munob-account-login small,
+.munob-account-role small {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.76rem;
+  font-weight: 500;
+  line-height: 1.35;
+  opacity: 0.76;
+}
+
+.munob-account-arrow {
+  color: #f7be45;
+  font-size: 1.65rem;
+  transition: transform 180ms ease;
+}
+
+.munob-account-login:hover .munob-account-arrow,
+.munob-account-login:focus-visible .munob-account-arrow {
+  transform: translateX(5px);
+}
+
+.munob-account-divider {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin: 22px 0 15px;
+  color: #777d9a;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.munob-account-divider::before,
+.munob-account-divider::after {
+  flex: 1;
+  height: 1px;
+  background: rgba(17, 28, 97, 0.12);
+  content: '';
+}
+
+.munob-account-register-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.munob-account-role {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-height: 112px;
+  padding: 17px 15px;
+  border: 1px solid rgba(17, 28, 97, 0.13);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #111c61 !important;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.munob-account-role:hover,
+.munob-account-role:focus-visible {
+  border-color: #f7be45;
+  box-shadow: 0 12px 25px rgba(17, 28, 97, 0.11);
+  outline: none;
+  transform: translateY(-3px);
+}
+
+.munob-account-role-icon {
+  display: inline-flex;
+  flex: 0 0 38px;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: rgba(247, 190, 69, 0.2);
+  color: #9d6900;
+}
+
+.munob-account-role-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.munob-account-role small {
+  color: #646b8e;
+  opacity: 1;
+}
+
+body.munob-account-open {
+  overflow: hidden;
+}
+
+@media (max-width: 1199px) {
+  .scrolling-navbar .navbar-brand,
+  .scrolling-navbar.munob-on-hero:not(.munob-nav-scrolled) .navbar-brand,
+  .scrolling-navbar.munob-on-hero.munob-nav-scrolled .navbar-brand {
+    top: 13px !important;
+    right: auto !important;
+    left: 50% !important;
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    width: 48px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-50%) !important;
+  }
+
+  .scrolling-navbar .navbar-brand img {
+    width: auto;
+    height: 35px;
+    max-height: 35px;
+    transition: filter 180ms ease;
+  }
+
+  .scrolling-navbar.munob-on-hero:not(.munob-nav-scrolled) .navbar-brand img {
+    filter: brightness(0) invert(1);
+  }
+
+  .munob-account-trigger {
+    top: 10px;
+    right: 18px;
+    width: 46px;
+    min-width: 46px;
+    height: 42px;
+    padding: 0;
+    border-radius: 11px;
+  }
+
+  .munob-account-trigger-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+@media (max-width: 575px) {
+  .munob-account-modal {
+    align-items: end;
+    padding: 12px;
+  }
+
+  .munob-account-dialog {
+    width: 100%;
+    max-height: calc(100vh - 24px);
+    padding: 29px 20px 21px;
+    border-radius: 22px;
+    transform: translateY(28px);
+  }
+
+  .munob-account-dialog::before {
+    right: 82px;
+    left: 82px;
+  }
+
+  .munob-account-mark {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 13px;
+    border-radius: 15px;
+  }
+
+  .munob-account-mark img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .munob-account-dialog h2 {
+    margin-right: 42px;
+    font-size: 1.65rem;
+  }
+
+  .munob-account-dialog > p:not(.munob-account-eyebrow) {
+    margin-bottom: 18px;
+    font-size: 0.88rem;
+  }
+
+  .munob-account-login {
+    min-height: 72px;
+    padding: 14px 16px;
+  }
+
+  .munob-account-divider {
+    margin: 17px 0 12px;
+  }
+
+  .munob-account-register-grid {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .munob-account-role {
+    align-items: center;
+    min-height: 78px;
+    padding: 12px 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .munob-account-trigger,
+  .munob-account-dialog,
+  .munob-account-login,
+  .munob-account-role,
+  .munob-account-arrow {
+    transition: none !important;
+  }
+}
