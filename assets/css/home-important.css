@@ -1,37 +1,25 @@
 .home-important {
   position: relative;
   overflow: hidden;
+  padding: 64px 0 72px;
+  background: #ffffff;
 }
 
 .important-title-band {
-  position: relative;
-  z-index: 2;
-  padding: 40px 24px 32px;
-  background: #ffffff;
-  box-shadow: 0 12px 24px rgba(5, 0, 57, 0.16);
+  max-width: 680px;
+  margin: 0 auto 34px;
 }
 
 .important-title-band .section-title {
-  margin: 0 auto 10px;
   color: #20203a;
-  font-size: clamp(1.65rem, 3vw, 2.2rem);
+  font-size: clamp(1.65rem, 3vw, 2.15rem);
 }
 
-.important-title-band > p {
-  max-width: 650px;
-  margin: 0 auto;
+.important-title-band > p:last-child {
+  margin: 0;
   color: #64647a;
   font-size: 15px;
-  line-height: 1.7;
-}
-
-.important-documents-content {
-  padding: 58px 24px 66px;
-  background-image: url('../img/background/final.jpg');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-attachment: fixed;
+  line-height: 1.65;
 }
 
 .important-documents-grid {
@@ -55,6 +43,12 @@
   border-radius: 18px;
   box-shadow: 0 20px 46px rgba(3, 0, 60, 0.32);
   transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+/* Release transform after WOW finishes so the card can lift on hover. */
+.important-document-card.animated {
+  -webkit-animation-fill-mode: backwards;
+  animation-fill-mode: backwards;
 }
 
 .important-document-card::before {
@@ -92,6 +86,10 @@
   letter-spacing: 0.08em;
 }
 
+.important-document-copy {
+  width: 100%;
+}
+
 .important-document-kicker {
   margin: 24px 0 7px;
   color: #f7be45;
@@ -110,7 +108,7 @@
 
 .important-document-edition {
   margin: 8px 0 0;
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.68);
   font-size: 14px;
   font-weight: 600;
 }
@@ -142,18 +140,18 @@
 }
 
 @media (max-width: 767.98px) {
-  .important-title-band {
-    padding: 30px 20px 26px;
+  .home-important {
+    padding: 46px 0 52px;
   }
 
-  .important-documents-content {
-    padding: 34px 14px 42px;
-    background-attachment: scroll;
+  .important-title-band {
+    margin-bottom: 26px;
+    padding: 0 18px;
   }
 
   .important-documents-grid {
     grid-template-columns: minmax(0, 1fr);
-    gap: 16px;
+    gap: 14px;
   }
 
   .important-document-card {

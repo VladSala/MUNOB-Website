@@ -81,13 +81,13 @@ document.addEventListener('DOMContentLoaded', function () {
       'index.html',
       'index.html#about',
       'index.html#faq',
+      'index.html#important-documents',
       'index.html#pricing',
       'index.html#sponsors',
       'newspaper.html',
       'committees.html',
       'country_matrix.html',
       'team.html',
-      'index.html#important-documents',
       'index.html#contact'
     ];
 
