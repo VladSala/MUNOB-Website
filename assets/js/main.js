@@ -28,11 +28,13 @@
 
       /* WOW Scroll Spy
     ========================================================*/
-     var wow = new WOW({
-      //disabled for mobile
-        mobile: false
-    });
-    wow.init();
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduceMotion) {
+      var wow = new WOW({
+        mobile: true
+      });
+      wow.init();
+    }
 
     /* Nivo Lightbox 
     ========================================================*/
@@ -278,6 +280,9 @@ document.addEventListener('DOMContentLoaded', function () {
       var mobileLink = document.createElement('a');
       mobileLink.href = link.href;
       mobileLink.textContent = link.textContent.trim();
+      if (link.hasAttribute('data-page-transition')) {
+        mobileLink.setAttribute('data-page-transition', '');
+      }
       item.appendChild(mobileLink);
       mobileList.appendChild(item);
     });

@@ -2573,9 +2573,18 @@ a.back-to-top:hover, a.back-to-top:focus {
   font-size: 1.1rem;
 }
 
+@media (max-width: 767.98px) {
+  .wow {
+    animation-duration: 0.9s !important;
+    animation-delay: 0.12s !important;
+  }
+}
+
 @media (max-width: 599px) {
   .hero-header {
-    min-height: 620px;
+    min-height: 100vh;
+    min-height: 100svh;
+    min-height: 100dvh;
     padding: 82px 1.25rem 2rem;
   }
 

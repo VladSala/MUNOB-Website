@@ -156,12 +156,41 @@
 }
 
 @media (max-width: 767.98px) {
+  .team-page {
+    background-image: url('../img/background/final.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .team-page .team-hero {
+    min-height: 100vh;
+    min-height: 100svh;
+    min-height: 100dvh;
+  }
+
   .team-gallery-section {
-    background-attachment: scroll;
+    background: transparent;
   }
 
   .team-gallery-section > .container > .row:first-child {
     padding: 30px 20px 26px;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .team-gallery-section .section-title-header .section-title {
+    color: #ffffff;
+  }
+
+  .team-gallery-section .section-title-header .section-title::before,
+  .team-gallery-section .section-title-header .section-title::after {
+    background-color: #f7be45;
+  }
+
+  .team-gallery-section .section-title-header p {
+    color: rgba(255, 255, 255, 0.82);
   }
 
   .team-gallery-section > .container > .row:nth-child(2) {
