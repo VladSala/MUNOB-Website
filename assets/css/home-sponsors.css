@@ -71,7 +71,7 @@
   #sponsors {
     padding-right: 16px;
     padding-left: 16px;
-    background-attachment: scroll;
+    background-attachment: fixed;
   }
 
   #sponsors .sponsors-grid {
