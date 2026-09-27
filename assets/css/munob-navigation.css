@@ -305,11 +305,11 @@
 @media (max-width: 767.98px) {
   .committees-page #committees {
     padding-bottom: 48px;
-    background-repeat: repeat-y;
+    background-repeat: no-repeat;
     background-position: center top;
-    background-size: auto 100vh;
-    background-size: auto 100svh;
-    background-attachment: scroll;
+    background-size: auto 900px;
+    background-size: auto max(100lvh, 100vw);
+    background-attachment: fixed;
   }
 
   .committees-page #committees .section-title-header {
@@ -580,7 +580,11 @@
 
   .news-page .news-stories {
     padding: 0 0 16px;
-    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: auto 900px;
+    background-size: auto max(100lvh, 100vw);
+    background-attachment: fixed;
   }
 
   .news-page .news-stories .section-title-header {
@@ -856,6 +860,53 @@
 }
 
 @media (max-width: 767px) {
+  /* A real fixed layer avoids Chrome's mobile background-attachment repaint jump. */
+  .munob-mobile-network-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    display: block;
+    width: 100vw;
+    height: 900px;
+    height: 100lvh;
+    pointer-events: none;
+    opacity: 0;
+    background-color: #1300b8;
+    background-image: url(../img/background/final.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: auto 900px;
+    background-size: auto max(100lvh, 100vw);
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+  }
+
+  body.munob-stable-network-ready {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .munob-mobile-network-backdrop.is-visible {
+    opacity: 1;
+  }
+
+  body.munob-stable-network-ready .munob-network-surface,
+  body.munob-stable-network-ready.munob-network-surface {
+    background-color: transparent;
+    background-image: none;
+  }
+
+  /* Use one stable artwork layer, matching the desktop effect without mobile rescaling. */
+  #pricing,
+  #sponsors {
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: auto 900px;
+    background-size: auto max(100lvh, 100vw);
+    background-attachment: fixed;
+  }
+
   /* Match the mobile alignment of the MUNOB and Contact columns. */
   .footer-area .row > div:nth-child(2),
   .footer-area .row > div:nth-child(4),
