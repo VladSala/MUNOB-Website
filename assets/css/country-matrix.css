@@ -379,7 +379,6 @@
     background-repeat: no-repeat;
     background-position: center top;
     background-size: auto 900px;
-    background-size: auto max(100lvh, 100vw);
     background-attachment: fixed;
   }
 

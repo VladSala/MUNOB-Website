@@ -5,6 +5,8 @@
   var backdrop = null;
   var surfaces = [];
   var ticking = false;
+  var artworkHeight = 900;
+  var initialPixelRatio = window.devicePixelRatio || 1;
 
   function collectSurfaces() {
     var selectors = [
@@ -43,9 +45,23 @@
       return;
     }
 
-    var viewportOffset = window.visualViewport ? window.visualViewport.offsetTop : 0;
-    var documentViewportTop = window.scrollY + viewportOffset;
-    backdrop.style.transform = 'translate3d(0, ' + documentViewportTop + 'px, 0)';
+    var viewport = window.visualViewport;
+    var viewportOffsetTop = viewport ? viewport.offsetTop : 0;
+    var viewportOffsetLeft = viewport ? viewport.offsetLeft : 0;
+    var viewportScale = viewport && viewport.scale ? viewport.scale : 1;
+    var browserZoom = (window.devicePixelRatio || initialPixelRatio) / initialPixelRatio;
+    var effectiveScale = Math.max(0.25, viewportScale * browserZoom);
+    var viewportWidth = viewport ? viewport.width : document.documentElement.clientWidth;
+    var viewportHeight = viewport ? viewport.height : document.documentElement.clientHeight;
+    var documentViewportTop = window.scrollY + viewportOffsetTop;
+    var documentViewportLeft = window.scrollX + viewportOffsetLeft;
+
+    /* Counter the browser's page scale so the particle artwork keeps the same
+       visual size while the foreground content is zoomed. */
+    backdrop.style.width = Math.ceil(viewportWidth) + 'px';
+    backdrop.style.height = Math.ceil(viewportHeight) + 'px';
+    backdrop.style.backgroundSize = 'auto ' + (artworkHeight / effectiveScale).toFixed(3) + 'px';
+    backdrop.style.transform = 'translate3d(' + documentViewportLeft + 'px, ' + documentViewportTop + 'px, 0)';
 
     var shouldShow = mobileQuery.matches && surfaces.some(isSurfaceVisible);
     backdrop.classList.toggle('is-visible', shouldShow);
