@@ -1,4 +1,4 @@
-/* Home account entry point and modal. Kept separate from the shared navigation. */
+/* Shared navbar entry point for the dedicated login and registration page. */
 .munob-account-trigger {
   position: fixed;
   z-index: 1403;
@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: center;
   gap: 9px;
-  min-width: 118px;
+  min-width: 152px;
   height: 46px;
   padding: 0 18px;
   border: 1px solid rgba(247, 190, 69, 0.9);
@@ -23,6 +23,7 @@
   letter-spacing: 0.055em;
   line-height: 1;
   text-transform: uppercase;
+  text-decoration: none !important;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
@@ -36,6 +37,7 @@
   color: #111c61;
   outline: none;
   transform: translateY(-2px);
+  text-decoration: none;
 }
 
 .munob-account-trigger-icon {
@@ -52,11 +54,11 @@
    not a second floating card. The contained treatment returns on scroll. */
 @media (min-width: 1200px) {
   .scrolling-navbar.munob-on-hero:not(.munob-nav-scrolled) .munob-account-trigger {
-    min-width: 108px;
-    height: 42px;
-    padding: 0 5px;
+    min-width: 152px;
+    height: 46px;
+    padding: 0 18px;
     border-color: transparent;
-    border-radius: 0;
+    border-radius: 999px;
     background: transparent;
     box-shadow: none;
     backdrop-filter: none;
