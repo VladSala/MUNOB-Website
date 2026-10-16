@@ -857,6 +857,11 @@
   box-shadow: 0 14px 28px rgba(2, 0, 43, 0.24);
 }
 
+/* The shared backdrop must never participate in desktop document flow. */
+.munob-mobile-network-backdrop {
+  display: none;
+}
+
 @media (max-width: 767px) {
   /* A real fixed layer avoids Chrome's mobile background-attachment repaint jump. */
   .munob-mobile-network-backdrop {

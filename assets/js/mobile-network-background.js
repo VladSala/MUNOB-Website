@@ -45,6 +45,15 @@
       return;
     }
 
+    if (!mobileQuery.matches) {
+      backdrop.classList.remove('is-visible');
+      backdrop.style.width = '';
+      backdrop.style.height = '';
+      backdrop.style.backgroundSize = '';
+      backdrop.style.transform = '';
+      return;
+    }
+
     var viewport = window.visualViewport;
     var viewportOffsetTop = viewport ? viewport.offsetTop : 0;
     var viewportOffsetLeft = viewport ? viewport.offsetLeft : 0;
