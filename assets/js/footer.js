@@ -34,7 +34,7 @@ let footer = `
               <h5 class="widget-title">FOLLOW US ON</h5>
               <ul class="footer-social">
                 <li><a class="facebook" href="https://www.facebook.com/MUNOB/"><i class="lni-facebook-filled"></i></a></li>
-                <li><a class="instagram" href="https://www.instagram.com/therealmunob/?hl=en"><i class="lni-instagram-filled"></i></a></li>
+                <li><a class="instagram" href="https://www.instagram.com/therealmunob/"><i class="lni-instagram-filled"></i></a></li>
               </ul>
             </div>
           </div>

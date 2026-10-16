@@ -579,10 +579,9 @@
 
   .news-page .news-stories {
     padding: 0 0 16px;
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: auto 900px;
-    background-attachment: fixed;
+    background-color: #1300b8;
+    background-image: none;
+    background-attachment: scroll;
   }
 
   .news-page .news-stories .section-title-header {
@@ -594,6 +593,7 @@
 
 @media (max-width: 767px) {
   .news-page .news-timeline {
+    --timeline-axis: 9px;
     margin-left: 16px;
     padding-bottom: 78px;
     padding-left: 38px;
@@ -602,7 +602,7 @@
   .news-page .news-timeline::before {
     top: 9px;
     bottom: 115px;
-    left: 9px;
+    left: var(--timeline-axis);
     transform: none;
   }
 
@@ -610,7 +610,7 @@
     content: '';
     position: absolute;
     bottom: 97px;
-    left: 9px;
+    left: var(--timeline-axis);
     box-sizing: border-box;
     width: 42px;
     height: 18px;
@@ -631,7 +631,8 @@
   .news-page .news-timeline-item--right::after {
     top: 0;
     right: auto;
-    left: -39px;
+    left: calc(var(--timeline-axis) - 47px);
+    box-sizing: border-box;
     width: 18px;
     height: 18px;
   }
@@ -647,7 +648,7 @@
     width: auto;
     min-height: 40px;
     margin: -20px 0 0;
-    left: 9px;
+    left: var(--timeline-axis);
     text-align: left;
   }
 
@@ -865,13 +866,13 @@
 @media (max-width: 767px) {
   /* A real fixed layer avoids Chrome's mobile background-attachment repaint jump. */
   .munob-mobile-network-backdrop {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
+    right: 0;
     z-index: -1;
     display: block;
-    width: 100vw;
-    height: 900px;
+    width: auto;
     height: 100lvh;
     pointer-events: none;
     opacity: 0;
@@ -880,13 +881,14 @@
     background-repeat: no-repeat;
     background-position: center top;
     background-size: auto 900px;
-    transform: translate3d(0, 0, 0);
-    will-change: transform;
+    transform: none;
+    will-change: auto;
   }
 
   body.munob-stable-network-ready {
     position: relative;
     isolation: isolate;
+    background-color: #1300b8;
   }
 
   .munob-mobile-network-backdrop.is-visible {
@@ -897,6 +899,16 @@
   body.munob-stable-network-ready.munob-network-surface {
     background-color: transparent;
     background-image: none;
+  }
+
+  .news-page .news-stories,
+  .committees-page #committees,
+  .country-matrix-page .matrix-content,
+  #pricing,
+  #sponsors {
+    background-color: #1300b8;
+    background-image: none;
+    background-attachment: scroll;
   }
 
   /* Use one stable artwork layer, matching the desktop effect without mobile rescaling. */
