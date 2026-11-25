@@ -1162,6 +1162,72 @@
   border: 0;
 }
 
+/* Home FAQ: the page backdrop is intentionally blue on phones, so the
+   default dark heading made this section look unfinished and too tall. */
+@media (max-width: 767px) {
+  #faq.section-padding {
+    padding: 42px 0 52px;
+  }
+
+  #faq .section-title-header {
+    margin-bottom: 24px;
+  }
+
+  #faq .section-title {
+    margin: 0;
+    padding-bottom: 18px;
+    color: #ffffff;
+    font-size: 1.42rem;
+    line-height: 1.25;
+    letter-spacing: 0.01em;
+  }
+
+  #faq .section-title::before,
+  #faq .section-title::after {
+    background-color: #f7be45;
+  }
+
+  #faq .accordion {
+    margin: 0 6px 12px;
+  }
+
+  #faq .accordion .card {
+    margin-bottom: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(15, 0, 184, 0.12);
+    border-radius: 12px;
+    box-shadow: 0 8px 18px rgba(3, 2, 55, 0.16);
+  }
+
+  #faq .accordion .card-header {
+    background: #ffffff;
+  }
+
+  #faq .accordion .header-title {
+    min-height: 50px;
+    padding-right: 38px;
+    color: #14142e;
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  #faq .accordion .card-header i {
+    width: 42px;
+    height: 50px;
+    margin-right: 8px;
+    line-height: 50px;
+  }
+
+  #faq .accordion .card-body {
+    padding: 0 18px 16px 58px;
+    background: #ffffff;
+    color: #36364f;
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+}
+
 body.is-page-transition-leaving .page-transition-layer,
 html.munob-transition-arriving .page-transition-layer {
   visibility: visible;
